@@ -342,7 +342,9 @@ clip = False
 # Defining which GPUs to use.
 gpus = "0"
 gpulist = gpus.split(",")
-num_gpus = len(gpulist)
+#num_gpus = len(gpulist)
+num_gpus = 0
+
 
 # The number does not matter since we do not do training with this script.
 batch_size = 1
