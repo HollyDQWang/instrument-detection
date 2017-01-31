@@ -1,4 +1,9 @@
-# SSD: Single Shot MultiBox Detector
+# Musico
+
+Musical Instrument Regonition Project
+
+
+## SSD: Single Shot MultiBox Detector
 
 [![Build Status](https://travis-ci.org/weiliu89/caffe.svg?branch=ssd)](https://travis-ci.org/weiliu89/caffe)
 [![License](https://img.shields.io/badge/license-BSD-blue.svg)](LICENSE)
