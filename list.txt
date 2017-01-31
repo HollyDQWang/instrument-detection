@@ -1,0 +1,14 @@
+eval_set/JPEGImages/0.jpeg
+eval_set/JPEGImages/1.jpeg
+eval_set/JPEGImages/2.jpeg
+eval_set/JPEGImages/3.jpeg
+eval_set/JPEGImages/4.jpeg
+eval_set/JPEGImages/5.jpeg
+eval_set/JPEGImages/6.jpeg
+eval_set/JPEGImages/7.jpeg
+eval_set/JPEGImages/8.jpeg
+eval_set/JPEGImages/9.jpeg
+eval_set/JPEGImages/10.jpeg
+eval_set/JPEGImages/11.jpeg
+eval_set/JPEGImages/12.jpeg
+eval_set/JPEGImages/13.jpeg
