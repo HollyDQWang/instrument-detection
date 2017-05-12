@@ -48,7 +48,7 @@ Using a script, we will download a small subset of the data and split it into tr
                             num workers used to download images. -x uses (all - x)
                             cores.
 
-    caffe % python examples/finetune_flickr_style/assemble_data.py --workers=-1 --images=2000 --seed 831486
+    caffe % python examples/finetune_flickr_style/assemble_data.py --workers=7 --images=2000 --seed 831486
     Downloading 2000 images with 7 workers...
     Writing train/val for 1939 successfully downloaded images.
 

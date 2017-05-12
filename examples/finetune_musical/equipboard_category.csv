@@ -1,0 +1,51 @@
+id,image_url,label,_split
+72d86e48-2e39-4636-b36b-0c6750cee419,/home/ubuntu/data/equipboard/Bass Guitar/Fender Jazz Bass/image/8.jpg,1,train
+fca21e3f-80d6-4026-8a85-a4343d36c6aa,/home/ubuntu/data/equipboard/Bass Guitar/Fender Jazz Bass/image/12.jpg,1,train
+feb3eca1-1151-4148-8963-cff832c49441,/home/ubuntu/data/equipboard/Electric Guitar/Fender Telecaster/image/6.jpg,0,train
+30690740-cc7e-4f4f-a726-542f8a59f76c,/home/ubuntu/data/equipboard/Electric Guitar/Fender Telecaster/image/7.jpg,0,train
+1c05a056-df32-40ef-b45b-079a0f0a1f75,/home/ubuntu/data/equipboard/Bass Guitar/Fender Precision Bass/image/7.jpg,1,train
+560f8bc2-b5f2-4e51-8777-80bb21d9f628,/home/ubuntu/data/equipboard/Bass Guitar/Fender Jazz Bass/image/13.jpg,1,train
+898111ca-5582-4194-ae75-3604980b87ff,/home/ubuntu/data/equipboard/Bass Guitar/Fender Precision Bass/image/14.jpg,1,train
+8993c750-b82e-4677-9fb0-85a0ce946456,/home/ubuntu/data/equipboard/Bass Guitar/Fender Jazz Bass/image/2.jpg,1,train
+55c3f52b-a7be-4206-803b-4b0e880e0415,/home/ubuntu/data/equipboard/Electric Guitar/Fender Telecaster/image/0.jpg,0,train
+b91cba1d-ae1e-4032-bb3e-32a897984516,/home/ubuntu/data/equipboard/Bass Guitar/Fender Jazz Bass/image/10.jpg,1,train
+4f786c23-6021-4d87-9ff1-72fd0824f13b,/home/ubuntu/data/equipboard/Bass Guitar/Fender Precision Bass/image/8.jpg,1,train
+1c0061ab-9db3-4033-99b4-ae4525e860b0,/home/ubuntu/data/equipboard/Electric Guitar/Gibson SG Standard Electric Guitar/image/9.jpg,0,train
+8428b797-4344-49eb-b007-f5a420dbbb00,/home/ubuntu/data/equipboard/Bass Guitar/Fender Precision Bass/image/16.jpg,1,train
+556947cc-f008-4c9c-9def-c46571d20bda,/home/ubuntu/data/equipboard/Bass Guitar/Fender Jazz Bass/image/6.jpg,1,train
+3211b14a-b950-4a02-80b6-cd589b98bd7f,/home/ubuntu/data/equipboard/Bass Guitar/Fender Precision Bass/image/3.jpg,1,train
+a15c41d2-a773-4b3d-bf1e-42e8ed20635b,/home/ubuntu/data/equipboard/Bass Guitar/Fender Precision Bass/image/5.jpg,1,train
+73c2eb11-43ec-4bf8-be77-14dedc98cef5,/home/ubuntu/data/equipboard/Bass Guitar/Fender Jazz Bass/image/0.jpg,1,train
+911cf624-6fbb-4beb-91a6-4404ad6b2408,/home/ubuntu/data/equipboard/Bass Guitar/Fender Jazz Bass/image/7.jpg,1,train
+94edfa2e-aedc-4e79-9422-16656565d72c,/home/ubuntu/data/equipboard/Bass Guitar/Fender Jazz Bass/image/11.jpg,1,train
+03a6868e-5cad-44be-a93d-e2c55f0501f6,/home/ubuntu/data/equipboard/Bass Guitar/Fender Jazz Bass/image/5.jpg,1,train
+aa1900e1-d363-401d-b459-f7a9cd8e9e4f,/home/ubuntu/data/equipboard/Electric Guitar/Gibson SG Standard Electric Guitar/image/3.jpg,0,train
+0b49b5e6-562e-4211-a929-c49eeec3c3ad,/home/ubuntu/data/equipboard/Bass Guitar/Fender Precision Bass/image/4.jpg,1,train
+77c9ef67-cd0d-412a-aa5d-bbc9b2d57588,/home/ubuntu/data/equipboard/Electric Guitar/Gibson SG Standard Electric Guitar/image/4.jpg,0,train
+3896b601-3679-439a-ae2a-50a2c5353bac,/home/ubuntu/data/equipboard/Bass Guitar/Fender Precision Bass/image/17.jpg,1,train
+8829f564-0f19-48d3-8ed9-5aea7b0b6556,/home/ubuntu/data/equipboard/Bass Guitar/Fender Precision Bass/image/6.jpg,1,train
+df22bdbb-c5d3-4061-9c3a-fd6dd1c43f63,/home/ubuntu/data/equipboard/Bass Guitar/Fender Precision Bass/image/0.jpg,1,train
+3e1cef9d-1488-4d7e-9ba1-75cec5a684ae,/home/ubuntu/data/equipboard/Bass Guitar/Fender Precision Bass/image/11.jpg,1,train
+400a2416-2f2b-4169-a0cb-0fda7b9c8bee,/home/ubuntu/data/equipboard/Electric Guitar/Gibson SG Standard Electric Guitar/image/1.jpg,0,train
+ff5c1318-0ff4-4b0a-af1f-d6f1a2df530d,/home/ubuntu/data/equipboard/Electric Guitar/Gibson SG Standard Electric Guitar/image/5.jpg,0,train
+98f2bece-b524-49f4-bf62-31492f325b66,/home/ubuntu/data/equipboard/Bass Guitar/Fender Precision Bass/image/2.jpg,1,train
+d134688e-8dde-4ff7-ad62-150fb7f183f9,/home/ubuntu/data/equipboard/Bass Guitar/Fender Jazz Bass/image/4.jpg,1,train
+72ceaf0f-59eb-4ef6-8ca5-ab3948e506c2,/home/ubuntu/data/equipboard/Bass Guitar/Fender Precision Bass/image/9.jpg,1,train
+08cd470a-3945-48dc-ba03-0304a08618ee,/home/ubuntu/data/equipboard/Bass Guitar/Fender Precision Bass/image/10.jpg,1,train
+eae73796-d2ce-4f64-8986-ca18705d8523,/home/ubuntu/data/equipboard/Electric Guitar/Fender Telecaster/image/2.jpg,0,train
+61432201-d34f-4c34-bf90-00cd91fd91ac,/home/ubuntu/data/equipboard/Electric Guitar/Fender Telecaster/image/3.jpg,0,train
+244001ef-43e3-49cc-9ee7-7cfe98e8a480,/home/ubuntu/data/equipboard/Electric Guitar/Fender Telecaster/image/1.jpg,0,test
+26b15f61-1771-4a02-849d-7c73fa2fb71b,/home/ubuntu/data/equipboard/Bass Guitar/Fender Jazz Bass/image/1.jpg,1,test
+a590adc3-5cc1-42e0-821e-53ecb76f3d12,/home/ubuntu/data/equipboard/Bass Guitar/Fender Precision Bass/image/15.jpg,1,test
+b517511f-daf3-4637-9ff9-2c9f8dd3b4c0,/home/ubuntu/data/equipboard/Electric Guitar/Fender Telecaster/image/4.jpg,0,test
+ccab8d43-518c-420a-a8e5-562cf1c87478,/home/ubuntu/data/equipboard/Bass Guitar/Fender Precision Bass/image/13.jpg,1,test
+e93ae98f-2744-465e-bb36-1fa883881656,/home/ubuntu/data/equipboard/Electric Guitar/Gibson SG Standard Electric Guitar/image/8.jpg,0,test
+9f2f3c77-bf4b-4ef1-b9a3-1d628fbc3dd5,/home/ubuntu/data/equipboard/Electric Guitar/Gibson SG Standard Electric Guitar/image/2.jpg,0,test
+2d7708ef-f68a-4e7d-8f78-19715b28f6ae,/home/ubuntu/data/equipboard/Bass Guitar/Fender Jazz Bass/image/9.jpg,1,test
+44821346-e265-4ed1-8db2-81a2d8afb1ca,/home/ubuntu/data/equipboard/Electric Guitar/Gibson SG Standard Electric Guitar/image/0.jpg,0,test
+4dec7d22-02a6-43f9-8681-f6f11733cb47,/home/ubuntu/data/equipboard/Electric Guitar/Gibson SG Standard Electric Guitar/image/6.jpg,0,test
+a2e87c9d-9ad8-4d78-98dd-c91129b90407,/home/ubuntu/data/equipboard/Bass Guitar/Fender Precision Bass/image/12.jpg,1,test
+139fd1d0-f244-447c-9914-36c1c6a04c7b,/home/ubuntu/data/equipboard/Electric Guitar/Gibson SG Standard Electric Guitar/image/7.jpg,0,test
+dc3a60db-e69c-4c6d-86ef-07a1c97a4c12,/home/ubuntu/data/equipboard/Electric Guitar/Fender Telecaster/image/5.jpg,0,test
+64a8fe09-82c2-4dfd-8f1d-c76b2be7efde,/home/ubuntu/data/equipboard/Bass Guitar/Fender Jazz Bass/image/3.jpg,1,test
+8f99c418-6d0e-4b80-b420-2203213bb92a,/home/ubuntu/data/equipboard/Bass Guitar/Fender Precision Bass/image/1.jpg,1,test

@@ -1003,3 +1003,13 @@ item {
   label: 200
   display_name: "zebra"
 }
+item {
+  name: "n03272010"
+  label: 201
+  display_name: "Electric Guitar"
+}
+item {
+  name: "n02804123"
+  label: 202
+  display_name: "Bass Guitar"
+}

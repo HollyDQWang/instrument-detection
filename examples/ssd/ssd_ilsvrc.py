@@ -260,12 +260,13 @@ job_file = "{}/{}.sh".format(job_dir, model_name)
 # Stores the test image names and sizes. Created by data/ILSVRC2016/create_list.py
 name_size_file = "data/ILSVRC2016/val2_name_size.txt"
 # The pretrained model. We use the Fully convolutional reduced (atrous) VGGNet.
-pretrain_model = "models/VGGNet/VGG_ILSVRC_16_layers_fc_reduced.caffemodel"
+#pretrain_model = "models/VGGNet/VGG_ILSVRC_16_layers_fc_reduced.caffemodel"
+pretrain_model = "models/VGGNet/ILSVRC2016/SSD_300x300/VGG_ILSVRC2016_SSD_300x300_iter_440000.caffemodel"
 # Stores LabelMapItem.
 label_map_file = "data/ILSVRC2016/labelmap_ilsvrc_det.prototxt"
 
 # MultiBoxLoss parameters.
-num_classes = 201
+num_classes = 203
 share_location = True
 background_label_id=0
 train_on_diff_gt = False
@@ -331,12 +332,13 @@ clip = False
 
 # Solver parameters.
 # Defining which GPUs to use.
-gpus = "0,1,2,3"
-gpulist = gpus.split(",")
-num_gpus = len(gpulist)
+#gpus = "0,1,2,3"
+#gpulist = gpus.split(",")
+#num_gpus = len(gpulist)
+num_gpus = 0
 
 # Divide the mini-batch to different GPUs.
-batch_size = 32
+batch_size = 8
 accum_batch_size = 32
 iter_size = accum_batch_size / batch_size
 solver_mode = P.Solver.CPU
@@ -358,7 +360,7 @@ elif normalization_mode == P.Loss.FULL:
   base_lr *= 2000.
 
 # Evaluate on whole test set.
-num_test_image = 9917
+num_test_image = 69
 test_batch_size = 1
 test_iter = num_test_image / test_batch_size
 
@@ -441,7 +443,8 @@ mbox_layers = CreateMultiBoxHead(net, data_layer='data', from_layers=mbox_source
         use_batchnorm=use_batchnorm, min_sizes=min_sizes, max_sizes=max_sizes,
         aspect_ratios=aspect_ratios, steps=steps, normalizations=normalizations,
         num_classes=num_classes, share_location=share_location, flip=flip, clip=clip,
-        prior_variance=prior_variance, kernel_size=3, pad=1, lr_mult=lr_mult)
+        prior_variance=prior_variance, kernel_size=3, pad=1, lr_mult=lr_mult,
+	conf_postfix="_whatever_you_like")
 
 # Create the MultiBoxLossLayer.
 name = "mbox_loss"
@@ -470,7 +473,8 @@ mbox_layers = CreateMultiBoxHead(net, data_layer='data', from_layers=mbox_source
         use_batchnorm=use_batchnorm, min_sizes=min_sizes, max_sizes=max_sizes,
         aspect_ratios=aspect_ratios, steps=steps, normalizations=normalizations,
         num_classes=num_classes, share_location=share_location, flip=flip, clip=clip,
-        prior_variance=prior_variance, kernel_size=3, pad=1, lr_mult=lr_mult)
+        prior_variance=prior_variance, kernel_size=3, pad=1, lr_mult=lr_mult,
+        conf_postfix="_whatever_you_like")
 
 conf_name = "mbox_conf"
 if multibox_loss_param["conf_loss_type"] == P.MultiBoxLoss.SOFTMAX:

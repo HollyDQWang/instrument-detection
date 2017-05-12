@@ -9,7 +9,7 @@ HOMEDIR = os.path.expanduser("~")
 CURDIR = os.path.dirname(os.path.realpath(__file__))
 
 # If true, re-create all list files.
-redo = False
+redo = True
 # The root directory which holds all information of the dataset.
 data_dir = "{}/data/ILSVRC".format(HOMEDIR)
 # The directory name which holds the image sets.
@@ -35,15 +35,16 @@ if redo or not os.path.exists(train_list_file):
     anno_files = []
     for dataset in datasets:
         imgset_file = "{}/{}/{}.txt".format(data_dir, imgset_dir, dataset)
+        print imgset_file
         with open(imgset_file, "r") as f:
             for line in f.readlines():
                 name = line.strip("\n").split(" ")[0]
                 subset = name.split("/")[0].split("_")[1]
-                anno_file = "{}/{}/{}.{}".format(anno_dir, subset, name, anno_ext)
+                anno_file = "{}/{}/{}.{}".format(anno_dir, "train", name, anno_ext)
                 # Ignore image if it does not have annotation. These are the negative images in ILSVRC.
                 if not os.path.exists("{}/{}".format(data_dir, anno_file)):
                     continue
-                img_file = "{}/{}/{}.{}".format(img_dir, subset, name, img_ext)
+                img_file = "{}/{}/{}.{}".format(img_dir, "train", name, img_ext)
                 assert os.path.exists("{}/{}".format(data_dir, img_file))
                 img_files.append(img_file)
                 anno_files.append(anno_file)
