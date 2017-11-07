@@ -1,3 +1,5 @@
+Experimental branch of the official SSD implementation for work with Prof. Serge Belongie and Debarun Dhar at Cornell. To be used for transfer learning to fine tune for instrument annotation.
+
 # Musico
 
 Musical Instrument Regonition Project
