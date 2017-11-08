@@ -1006,10 +1006,20 @@ item {
 item {
   name: "n03272010"
   label: 201
-  display_name: "Electric Guitar"
+  display_name: "electric_guitar"
 }
 item {
   name: "n02804123"
   label: 202
-  display_name: "Bass Guitar"
+  display_name: "bass_guitar"
+}
+item {
+  name: "n04249415"
+  label: 203
+  display_name: "snare_drum"
+}
+item {
+  name: "n02676566"
+  label: 204
+  display_name: "acoustic_guitar"
 }

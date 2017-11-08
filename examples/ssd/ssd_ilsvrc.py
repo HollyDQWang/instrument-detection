@@ -261,7 +261,7 @@ job_file = "{}/{}.sh".format(job_dir, model_name)
 name_size_file = "data/ILSVRC2016/val2_name_size.txt"
 # The pretrained model. We use the Fully convolutional reduced (atrous) VGGNet.
 #pretrain_model = "models/VGGNet/VGG_ILSVRC_16_layers_fc_reduced.caffemodel"
-pretrain_model = "models/VGGNet/ILSVRC2016/SSD_300x300/VGG_ILSVRC2016_SSD_300x300_iter_440000.caffemodel"
+pretrain_model = "models/trained_model/SSD_300x300/VGG_ILSVRC2016_SSD_300x300_iter_440000.caffemodel"
 # Stores LabelMapItem.
 label_map_file = "data/ILSVRC2016/labelmap_ilsvrc_det.prototxt"
 
