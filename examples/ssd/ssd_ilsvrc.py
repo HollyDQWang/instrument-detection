@@ -79,9 +79,9 @@ resume_training = True
 remove_old_models = True
 
 # The database file for training data. Created by data/ILSVRC2016/create_data.sh
-train_data = "examples/ILSVRC2016/ILSVRC2016_trainval1_lmdb"
+train_data = "/home/tharun/data/ILSVRC/lmdb/DET/ILSVRC2016_trainval1_lmdb"
 # The database file for testing data. Created by data/ILSVRC2016/create_data.sh
-test_data = "examples/ILSVRC2016/ILSVRC2016_val2_lmdb"
+test_data = "/home/tharun/data/ILSVRC/lmdb/DET/ILSVRC2016_val2_lmdb"
 # Specify the batch sampler.
 resize_width = 300
 resize_height = 300
@@ -261,12 +261,12 @@ job_file = "{}/{}.sh".format(job_dir, model_name)
 name_size_file = "data/ILSVRC2016/val2_name_size.txt"
 # The pretrained model. We use the Fully convolutional reduced (atrous) VGGNet.
 #pretrain_model = "models/VGGNet/VGG_ILSVRC_16_layers_fc_reduced.caffemodel"
-pretrain_model = "models/trained_model/SSD_300x300/VGG_ILSVRC2016_SSD_300x300_iter_440000.caffemodel"
+pretrain_model = "models/trained_model/VGG_ILSVRC2016_SSD_300x300_iter_440000.caffemodel"
 # Stores LabelMapItem.
 label_map_file = "data/ILSVRC2016/labelmap_ilsvrc_det.prototxt"
 
 # MultiBoxLoss parameters.
-num_classes = 203
+num_classes = 205
 share_location = True
 background_label_id=0
 train_on_diff_gt = False
@@ -332,9 +332,9 @@ clip = False
 
 # Solver parameters.
 # Defining which GPUs to use.
-#gpus = "0,1,2,3"
-#gpulist = gpus.split(",")
-#num_gpus = len(gpulist)
+# gpus = "0"
+# gpulist = gpus.split(",")
+# num_gpus = len(gpulist)
 num_gpus = 0
 
 # Divide the mini-batch to different GPUs.
