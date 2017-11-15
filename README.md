@@ -1,5 +1,12 @@
 Experimental branch of the official SSD implementation for work with Prof. Serge Belongie and Debarun Dhar at Cornell. To be used for transfer learning to fine tune for instrument annotation.
 
+Caffe Dependencies:
+```
+sudo apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libboost-all-dev libhdf5-serial-dev
+sudo apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev protobuf-compiler
+sudo apt-get install libopenblas-dev libopencv-dev python-opencv
+```
+
 # Musico
 
 Musical Instrument Regonition Project
