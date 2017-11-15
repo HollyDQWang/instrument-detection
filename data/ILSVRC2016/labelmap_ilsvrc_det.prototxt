@@ -1023,3 +1023,8 @@ item {
   label: 204
   display_name: "acoustic_guitar"
 }
+item {
+  name: "n03499907"
+  label: 205
+  display_name: "Hawaiian_guitar"
+}
