@@ -576,7 +576,8 @@ shutil.copy(py_file, job_dir)
 os.chmod(job_file, stat.S_IRWXU)
 print('Running job...')
 if run_soon:
-    p = subprocess.Popen(job_file, shell=True, stdout=subprocess.PIPE, bufsize=1)
+    p = subprocess.Popen(job_file, shell=True, stdout=subprocess.PIPE, bufsize=1,
+    preexec_fn=os.setsid)
     # Early stopping
     try:
         with p.stdout:
@@ -597,12 +598,10 @@ if run_soon:
 
                     if n == 10:
                         print('Ending training')
-                        os.kill(p.pid, signal.SIGINT)
-                        p.wait()
+                        os.killpg(os.getpgid(p.pid), signal.SIGTERM)
                         break
 
     except KeyboardInterrupt:
         print('KeyboardInterrupt')
-        p.kill()
-        p.wait()
+        os.killpg(os.getpgid(p.pid), signal.SIGTERM)
         sys.exit()
