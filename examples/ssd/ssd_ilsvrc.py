@@ -333,16 +333,16 @@ clip = False
 
 # Solver parameters.
 # Defining which GPUs to use.
-# gpus = "0"
-# gpulist = gpus.split(",")
-# num_gpus = len(gpulist)
-num_gpus = 0
+gpus = "0"
+gpulist = gpus.split(",")
+num_gpus = len(gpulist)
+# num_gpus = 0
 
 # Divide the mini-batch to different GPUs.
 batch_size = 8
 accum_batch_size = 32
 iter_size = accum_batch_size / batch_size
-solver_mode = P.Solver.CPU
+solver_mode = P.Solver.GPU
 device_id = 0
 batch_size_per_device = batch_size
 if num_gpus > 0:
