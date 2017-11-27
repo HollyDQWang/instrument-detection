@@ -240,13 +240,13 @@ job_name = "SSD_{}".format(resize)
 model_name = "VGG_ILSVRC2016_{}".format(job_name)
 
 # Directory which stores the model .prototxt file.
-save_dir = "models/VGGNet/ILSVRC2016/{}".format(job_name)
+save_dir = "models/VGGNet/ILSVRC2016/frozen/{}".format(job_name)
 # Directory which stores the snapshot of models.
-snapshot_dir = "models/VGGNet/ILSVRC2016/{}".format(job_name)
+snapshot_dir = "models/VGGNet/ILSVRC2016/frozen/{}".format(job_name)
 # Directory which stores the job script and log file.
-job_dir = "jobs/VGGNet/ILSVRC2016/{}".format(job_name)
+job_dir = "jobs/VGGNet/ILSVRC2016/frozen/{}".format(job_name)
 # Directory which stores the detection results.
-output_result_dir = "{}/data/ILSVRC2016/results/{}".format(os.environ['HOME'], job_name)
+output_result_dir = "{}/data/ILSVRC2016/results/frozen/{}".format(os.environ['HOME'], job_name)
 
 # model definition files.
 train_net_file = "{}/train.prototxt".format(save_dir)
@@ -458,7 +458,7 @@ with open(train_net_file, 'w') as f:
     print('name: "{}_train"'.format(model_name), file=f)
     print(net.to_proto(), file=f)
 shutil.copy(train_net_file, job_dir)
-
+sys.exit()
 # Create test net.
 net = caffe.NetSpec()
 net.data, net.label = CreateAnnotatedDataLayer(test_data, batch_size=test_batch_size,
