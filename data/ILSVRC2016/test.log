@@ -1,6 +1,1 @@
-/home/tharun/SSD-instruments/build/tools/convert_annoset: /home/tharun/anaconda2/lib/libtiff.so.5: no version information available (required by /usr/lib/x86_64-linux-gnu/libopencv_highgui.so.2.4)
-I1126 14:55:45.089081 11058 convert_annoset.cpp:122] A total of 1261 images.
-I1126 14:55:45.096390 11058 db_lmdb.cpp:35] Opened lmdb /home/tharun/data/ILSVRC/lmdb/DET/ILSVRC2016_test_lmdb
-I1126 14:55:48.417970 11058 convert_annoset.cpp:195] Processed 1000 files.
-I1126 14:55:49.314049 11058 convert_annoset.cpp:201] Processed 1261 files.
-/home/tharun/SSD-instruments/build/tools/convert_annoset --anno_type=classification --min_dim=0 --max_dim=0 --resize_height=0 --resize_width=0 --backend=lmdb --shuffle=False --check_size=False --encode_type=jpg --encoded=True --gray=False /home/tharun/data/ILSVRC/ /home/tharun/SSD-instruments/data/ILSVRC2016/../../data/ILSVRC2016/test.txt /home/tharun/data/ILSVRC/lmdb/DET/ILSVRC2016_test_lmdb
+/home/tharun/data/ILSVRC/lmdb/DET/ILSVRC2016_test_lmdb already exists and I do not hear redo
