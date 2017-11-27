@@ -361,7 +361,7 @@ elif normalization_mode == P.Loss.FULL:
   base_lr *= 2000.
 
 # Evaluate on whole test set.
-num_test_image = 69
+num_test_image = 432
 test_batch_size = 1
 test_iter = num_test_image / test_batch_size
 
