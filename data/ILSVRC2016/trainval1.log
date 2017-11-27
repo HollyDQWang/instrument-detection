@@ -1,13 +1,12 @@
 /home/tharun/SSD-instruments/build/tools/convert_annoset: /home/tharun/anaconda2/lib/libtiff.so.5: no version information available (required by /usr/lib/x86_64-linux-gnu/libopencv_highgui.so.2.4)
-I1114 20:14:44.988138 10635 convert_annoset.cpp:122] A total of 2377 images.
-I1114 20:14:44.994457 10635 db_lmdb.cpp:35] Opened lmdb /home/tharun/data/ILSVRC/lmdb/DET/ILSVRC2016_trainval1_lmdb
-W1114 20:14:51.487138 10635 io.cpp:330] /home/tharun/data/ILSVRC/Annotations/DET/train/n03467517_2200.xml bounding box exceeds image boundary.
-W1114 20:14:53.554713 10635 io.cpp:332] /home/tharun/data/ILSVRC/Annotations/DET/train/n03467517_18729.xml bounding box exceeds image boundary.
-W1114 20:14:58.589583 10635 io.cpp:326] /home/tharun/data/ILSVRC/Annotations/DET/train/n03249569_1224.xml bounding box exceeds image boundary.
-W1114 20:14:58.589620 10635 io.cpp:328] /home/tharun/data/ILSVRC/Annotations/DET/train/n03249569_1224.xml bounding box exceeds image boundary.
-W1114 20:14:58.589627 10635 io.cpp:330] /home/tharun/data/ILSVRC/Annotations/DET/train/n03249569_1224.xml bounding box exceeds image boundary.
-W1114 20:14:58.589634 10635 io.cpp:332] /home/tharun/data/ILSVRC/Annotations/DET/train/n03249569_1224.xml bounding box exceeds image boundary.
-I1114 20:15:11.579795 10635 convert_annoset.cpp:195] Processed 1000 files.
-I1114 20:15:47.678704 10635 convert_annoset.cpp:195] Processed 2000 files.
-I1114 20:16:00.441747 10635 convert_annoset.cpp:201] Processed 2377 files.
+I1126 14:56:02.451905 11101 convert_annoset.cpp:122] A total of 1654 images.
+I1126 14:56:02.454120 11101 db_lmdb.cpp:35] Opened lmdb /home/tharun/data/ILSVRC/lmdb/DET/ILSVRC2016_trainval1_lmdb
+W1126 14:56:09.879256 11101 io.cpp:332] /home/tharun/data/ILSVRC/Annotations/DET/train/n03467517_18729.xml bounding box exceeds image boundary.
+W1126 14:56:22.430780 11101 io.cpp:326] /home/tharun/data/ILSVRC/Annotations/DET/train/n03249569_1224.xml bounding box exceeds image boundary.
+W1126 14:56:22.430812 11101 io.cpp:328] /home/tharun/data/ILSVRC/Annotations/DET/train/n03249569_1224.xml bounding box exceeds image boundary.
+W1126 14:56:22.430822 11101 io.cpp:330] /home/tharun/data/ILSVRC/Annotations/DET/train/n03249569_1224.xml bounding box exceeds image boundary.
+W1126 14:56:22.430829 11101 io.cpp:332] /home/tharun/data/ILSVRC/Annotations/DET/train/n03249569_1224.xml bounding box exceeds image boundary.
+I1126 14:56:38.221443 11101 convert_annoset.cpp:195] Processed 1000 files.
+W1126 14:56:42.016716 11101 io.cpp:330] /home/tharun/data/ILSVRC/Annotations/DET/train/n03467517_2200.xml bounding box exceeds image boundary.
+I1126 14:57:00.780652 11101 convert_annoset.cpp:201] Processed 1654 files.
 /home/tharun/SSD-instruments/build/tools/convert_annoset --anno_type=detection --label_type=xml --label_map_file=/home/tharun/SSD-instruments/data/ILSVRC2016/../../data/ILSVRC2016/labelmap_ilsvrc_det.prototxt --check_label=True --min_dim=0 --max_dim=0 --resize_height=0 --resize_width=0 --backend=lmdb --shuffle=False --check_size=False --encode_type=jpg --encoded=True --gray=False /home/tharun/data/ILSVRC/ /home/tharun/SSD-instruments/data/ILSVRC2016/../../data/ILSVRC2016/trainval1.txt /home/tharun/data/ILSVRC/lmdb/DET/ILSVRC2016_trainval1_lmdb

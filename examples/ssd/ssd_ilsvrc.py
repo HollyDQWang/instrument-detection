@@ -9,6 +9,7 @@ import shutil
 import stat
 import subprocess
 import sys
+import signal
 
 # Add extra layers on top of a "base" network (e.g. VGGNet or Inception).
 def AddExtraLayers(net, use_batchnorm=True, lr_mult=1):
@@ -266,7 +267,7 @@ pretrain_model = "models/trained_model/VGG_ILSVRC2016_SSD_300x300_iter_440000.ca
 label_map_file = "data/ILSVRC2016/labelmap_ilsvrc_det.prototxt"
 
 # MultiBoxLoss parameters.
-num_classes = 205
+num_classes = 206
 share_location = True
 background_label_id=0
 train_on_diff_gt = False
@@ -374,7 +375,7 @@ solver_param = {
     'momentum': 0.9,
     'iter_size': iter_size,
     'max_iter': 440000,
-    'snapshot': 30000,
+    'snapshot': 1654,
     'display': 10,
     'average_loss': 10,
     'type': "SGD",
@@ -384,7 +385,7 @@ solver_param = {
     'snapshot_after_train': True,
     # Test parameters
     'test_iter': [test_iter],
-    'test_interval': 10000,
+    'test_interval': 1654, #1654
     'eval_type': "detection",
     'ap_version': "MaxIntegral",
     'test_initialization': False,
@@ -533,9 +534,9 @@ max_iter = 0
 for file in os.listdir(snapshot_dir):
   if file.endswith(".solverstate"):
     basename = os.path.splitext(file)[0]
-    iter = int(basename.split("{}_iter_".format(model_name))[1])
-    if iter > max_iter:
-      max_iter = iter
+    iteration = int(basename.split("{}_iter_".format(model_name))[1])
+    if iteration > max_iter:
+      max_iter = iteration
 
 train_src_param = '--weights="{}" \\\n'.format(pretrain_model)
 if resume_training:
@@ -547,13 +548,13 @@ if remove_old_models:
   for file in os.listdir(snapshot_dir):
     if file.endswith(".solverstate"):
       basename = os.path.splitext(file)[0]
-      iter = int(basename.split("{}_iter_".format(model_name))[1])
-      if max_iter > iter:
+      iteration = int(basename.split("{}_iter_".format(model_name))[1])
+      if max_iter > iteration:
         os.remove("{}/{}".format(snapshot_dir, file))
     if file.endswith(".caffemodel"):
       basename = os.path.splitext(file)[0]
-      iter = int(basename.split("{}_iter_".format(model_name))[1])
-      if max_iter > iter:
+      iteration = int(basename.split("{}_iter_".format(model_name))[1])
+      if max_iter > iteration:
         os.remove("{}/{}".format(snapshot_dir, file))
 
 # Create job file.
@@ -573,5 +574,35 @@ shutil.copy(py_file, job_dir)
 
 # Run the job.
 os.chmod(job_file, stat.S_IRWXU)
+print('Running job...')
 if run_soon:
-  subprocess.call(job_file, shell=True)
+    p = subprocess.Popen(job_file, shell=True, stdout=subprocess.PIPE, bufsize=1)
+    # Early stopping
+    try:
+        with p.stdout:
+            max_acc = 0
+            n = 0 # number of times same val acc has stayed the same
+            for line in iter(p.stdout.readline, b''):
+                print(line, end='')
+                i = line.find('detection_eval = ')
+                if i != -1:
+                    acc_str = line[i+17:]
+                    acc = float(acc_str)
+                    if acc > max_acc + 0.001:
+                        max_acc = acc
+                        n = 0
+                    else:
+                        n += 1
+                        print('Accuracy has not increased for ' + str(n) + ' epoch(s)')
+
+                    if n == 10:
+                        print('Ending training')
+                        os.kill(p.pid, signal.SIGINT)
+                        p.wait()
+                        break
+
+    except KeyboardInterrupt:
+        print('KeyboardInterrupt')
+        p.kill()
+        p.wait()
+        sys.exit()

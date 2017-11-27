@@ -68,7 +68,9 @@ if redo or not os.path.exists(val_list_file):
                 img_file = "{}/{}/{}.{}".format(img_dir, subset, name, img_ext)
                 assert os.path.exists("{}/{}".format(data_dir, img_file))
                 anno_file = "{}/{}/{}.{}".format(anno_dir, subset, name, anno_ext)
-                assert os.path.exists("{}/{}".format(data_dir, anno_file))
+                # Ignore images w/o annotations
+                if not os.path.exists("{}/{}".format(data_dir, anno_file)):
+                    continue
                 img_files.append(img_file)
                 anno_files.append(anno_file)
     with open(val_list_file, "w") as f:

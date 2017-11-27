@@ -1,0 +1,29 @@
+--- include/caffe/solver.hpp	2017-08-08 19:25:06.248459535 +0800
++++ include/caffe/solver.hpp	2017-08-03 14:40:18.155456611 +0800
+@@ -56,11 +56,6 @@
+   // in a non-zero iter number to resume training for a pre-trained net.
+   virtual void Solve(const char* resume_file = NULL);
+   inline void Solve(const string resume_file) { Solve(resume_file.c_str()); }
+-
+-  // Put in your stopping conditions here. 
+-  // the defaultStopCondition is used as a catch-all.
+-  bool KeepRunning(bool defaultStopCondition);
+-
+   void Step(int iters);
+   // The Restore method simply dispatches to one of the
+   // RestoreSolverStateFrom___ protected methods. You should implement these
+@@ -134,14 +129,6 @@
+   Timer iteration_timer_;
+   float iterations_last_;
+ 
+-  // For Early Stopping. 
+-  bool es_has_; 
+-  int es_length_; // maximum runs needed for improvement.
+-  int es_skip_; // number of skips. 
+-  float es_best_loss_;
+-  int es_iter_;
+-  int es_test_; // ID of test network. 
+-
+   DISABLE_COPY_AND_ASSIGN(Solver);
+ };
+ 

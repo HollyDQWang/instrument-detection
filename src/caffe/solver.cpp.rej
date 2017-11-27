@@ -1,0 +1,85 @@
+--- src/caffe/solver.cpp	2017-08-08 19:25:06.260459293 +0800
++++ src/caffe/solver.cpp	2017-08-03 14:40:22.895384665 +0800
+@@ -2,7 +2,6 @@
+ 
+ #include <string>
+ #include <vector>
+-#include <limits>
+ 
+ #include "caffe/solver.hpp"
+ #include "caffe/util/format.hpp"
+@@ -58,29 +57,6 @@
+   }
+   iter_ = 0;
+   current_step_ = 0;
+-
+-  // Initialize early stopping
+-  es_has_ = param_.has_early_stop_param();
+-  if(es_has_){
+-  	es_test_ = param_.early_stop_param().test();
+-	CHECK_GE(es_test_,0) << "Test ID can't be non-zero";
+-    
+-	es_length_ = param_.early_stop_param().length();
+-	CHECK_GE(es_length_,1) << "Early Stopping length must be more than 1";
+-
+-	es_skip_ = param_.early_stop_param().skip();
+-	CHECK_GE(es_skip_,1) << "Early Stopping skip must be more than 1"; 
+-
+-	es_best_loss_  = FLT_MAX;
+-	es_iter_ = 0;
+-	LOG_IF(INFO, Caffe::root_solver())
+-		        << "Early Stopping on Test Network #: " << es_test_;
+-	LOG_IF(INFO, Caffe::root_solver())
+-		        << "Early Stopping Length: " << es_length_;
+-    LOG_IF(INFO, Caffe::root_solver())
+-	            << "Early Stopping Skip: " << es_skip_;
+-  }
+-
+ }
+ 
+ template <typename Dtype>
+@@ -209,7 +185,7 @@
+   smoothed_loss_ = 0;
+   iteration_timer_.Start();
+ 
+-  while (KeepRunning(iter_ < stop_iter)) {
++  while (iter_ < stop_iter) {
+     // zero-init the params
+     net_->ClearParamDiffs();
+     if (param_.test_interval() && iter_ % param_.test_interval() == 0
+@@ -508,35 +484,6 @@
+   }
+ }
+ 
+-template <typename Dtype>
+-bool Solver<Dtype>::KeepRunning(bool defaultStopCondition){
+-
+-	if ( es_has_ && (iter_ % es_skip_ == 0) ){ // Check for early stopping	
+-		const shared_ptr<Net<Dtype> >& test_net = test_nets_[es_test_];
+-		Dtype loss = 0;
+-		int n = param_.test_iter(es_test_);
+-		for (int i = 0; i < n; ++i) {
+-			Dtype iter_loss;
+-			test_net->Forward(&iter_loss);
+-			loss += iter_loss;
+-		}
+-		if( loss < es_best_loss_ ){
+-			es_iter_ = 0;
+-			es_best_loss_ = loss;
+-		}else{
+-			++es_iter_;
+-		}
+-		
+-		if( es_iter_ >= es_length_ ){
+-			LOG(INFO) << "Early Stopping: best test loss= "
+-			          << es_best_loss_ / n ;
+-			 return false;
+-		}
+-	}
+-
+-	return defaultStopCondition;
+-}
+-
+ INSTANTIATE_CLASS(Solver);
+ 
+ }  // namespace caffe
