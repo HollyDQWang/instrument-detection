@@ -1,5 +1,5 @@
 /home/tharun/SSD-instruments/build/tools/convert_annoset: /home/tharun/anaconda2/lib/libtiff.so.5: no version information available (required by /usr/lib/x86_64-linux-gnu/libopencv_highgui.so.2.4)
-I1127 15:31:02.333233   876 convert_annoset.cpp:122] A total of 432 images.
-I1127 15:31:02.347839   876 db_lmdb.cpp:35] Opened lmdb /home/tharun/data/ILSVRC/lmdb/DET/ILSVRC2016_val2_lmdb
-I1127 15:31:05.661666   876 convert_annoset.cpp:201] Processed 432 files.
+I1130 11:32:06.061401  5543 convert_annoset.cpp:122] A total of 432 images.
+I1130 11:32:06.061964  5543 db_lmdb.cpp:35] Opened lmdb /home/tharun/data/ILSVRC/lmdb/DET/ILSVRC2016_val2_lmdb
+I1130 11:32:18.329901  5543 convert_annoset.cpp:201] Processed 432 files.
 /home/tharun/SSD-instruments/build/tools/convert_annoset --anno_type=detection --label_type=xml --label_map_file=/home/tharun/SSD-instruments/data/ILSVRC2016/../../data/ILSVRC2016/labelmap_ilsvrc_det.prototxt --check_label=True --min_dim=0 --max_dim=0 --resize_height=0 --resize_width=0 --backend=lmdb --shuffle=False --check_size=False --encode_type=jpg --encoded=True --gray=False /home/tharun/data/ILSVRC/ /home/tharun/SSD-instruments/data/ILSVRC2016/../../data/ILSVRC2016/val2.txt /home/tharun/data/ILSVRC/lmdb/DET/ILSVRC2016_val2_lmdb
