@@ -267,7 +267,7 @@ pretrain_model = "models/trained_model/VGG_ILSVRC2016_SSD_300x300_iter_440000.ca
 label_map_file = "data/ILSVRC2016/labelmap_ilsvrc_det.prototxt"
 
 # MultiBoxLoss parameters.
-num_classes = 206
+num_classes = 10
 share_location = True
 background_label_id=0
 train_on_diff_gt = False
@@ -339,7 +339,7 @@ num_gpus = len(gpulist)
 # num_gpus = 0
 
 # Divide the mini-batch to different GPUs.
-batch_size = 8
+batch_size = 1
 accum_batch_size = 32
 iter_size = accum_batch_size / batch_size
 solver_mode = P.Solver.GPU
@@ -375,7 +375,7 @@ solver_param = {
     'momentum': 0.9,
     'iter_size': iter_size,
     'max_iter': 440000,
-    'snapshot': 1654,
+    'snapshot': 52,
     'display': 10,
     'average_loss': 10,
     'type': "SGD",
@@ -385,7 +385,7 @@ solver_param = {
     'snapshot_after_train': True,
     # Test parameters
     'test_iter': [test_iter],
-    'test_interval': 1654, #1654
+    'test_interval': 52,
     'eval_type': "detection",
     'ap_version': "MaxIntegral",
     'test_initialization': False,
