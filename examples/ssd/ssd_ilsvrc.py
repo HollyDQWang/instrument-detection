@@ -80,7 +80,7 @@ resume_training = True
 remove_old_models = True
 
 # The database file for training data. Created by data/ILSVRC2016/create_data.sh
-train_data = "/home/tharun/data/ILSVRC/lmdb/DET/ILSVRC2016_trainval1_lmdb"
+train_data = "/home/tharun/data/ILSVRC/lmdb/DET/ILSVRC2016_trainval1_lmdb_aug"
 # The database file for testing data. Created by data/ILSVRC2016/create_data.sh
 test_data = "/home/tharun/data/ILSVRC/lmdb/DET/ILSVRC2016_val2_lmdb"
 # Specify the batch sampler.

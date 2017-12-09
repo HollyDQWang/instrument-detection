@@ -1,12 +1,39 @@
 /home/tharun/SSD-instruments/build/tools/convert_annoset: /home/tharun/anaconda2/lib/libtiff.so.5: no version information available (required by /usr/lib/x86_64-linux-gnu/libopencv_highgui.so.2.4)
-I1130 11:32:19.453228  5561 convert_annoset.cpp:122] A total of 1654 images.
-I1130 11:32:19.453848  5561 db_lmdb.cpp:35] Opened lmdb /home/tharun/data/ILSVRC/lmdb/DET/ILSVRC2016_trainval1_lmdb
-W1130 11:32:39.730830  5561 io.cpp:330] /home/tharun/data/ILSVRC/Annotations/DET/train/n03467517_2200.xml bounding box exceeds image boundary.
-I1130 11:32:55.289105  5561 convert_annoset.cpp:195] Processed 1000 files.
-W1130 11:33:09.046871  5561 io.cpp:332] /home/tharun/data/ILSVRC/Annotations/DET/train/n03467517_18729.xml bounding box exceeds image boundary.
-W1130 11:33:09.826663  5561 io.cpp:326] /home/tharun/data/ILSVRC/Annotations/DET/train/n03249569_1224.xml bounding box exceeds image boundary.
-W1130 11:33:09.826705  5561 io.cpp:328] /home/tharun/data/ILSVRC/Annotations/DET/train/n03249569_1224.xml bounding box exceeds image boundary.
-W1130 11:33:09.826716  5561 io.cpp:330] /home/tharun/data/ILSVRC/Annotations/DET/train/n03249569_1224.xml bounding box exceeds image boundary.
-W1130 11:33:09.826726  5561 io.cpp:332] /home/tharun/data/ILSVRC/Annotations/DET/train/n03249569_1224.xml bounding box exceeds image boundary.
-I1130 11:33:18.070358  5561 convert_annoset.cpp:201] Processed 1654 files.
+I1209 17:34:42.316990  3810 convert_annoset.cpp:122] A total of 8260 images.
+I1209 17:34:42.353435  3810 db_lmdb.cpp:35] Opened lmdb /home/tharun/data/ILSVRC/lmdb/DET/ILSVRC2016_trainval1_lmdb
+W1209 17:34:42.822752  3810 io.cpp:332] /home/tharun/data/ILSVRC/Annotations/DET/train1/n03467517_18729_aug1.xml bounding box exceeds image boundary.
+W1209 17:34:44.545994  3810 io.cpp:326] /home/tharun/data/ILSVRC/Annotations/DET/train1/n03249569_1224_aug1.xml bounding box exceeds image boundary.
+W1209 17:34:44.546012  3810 io.cpp:328] /home/tharun/data/ILSVRC/Annotations/DET/train1/n03249569_1224_aug1.xml bounding box exceeds image boundary.
+W1209 17:34:44.546036  3810 io.cpp:330] /home/tharun/data/ILSVRC/Annotations/DET/train1/n03249569_1224_aug1.xml bounding box exceeds image boundary.
+W1209 17:34:44.546038  3810 io.cpp:332] /home/tharun/data/ILSVRC/Annotations/DET/train1/n03249569_1224_aug1.xml bounding box exceeds image boundary.
+I1209 17:34:46.770375  3810 convert_annoset.cpp:195] Processed 1000 files.
+I1209 17:34:51.009155  3810 convert_annoset.cpp:195] Processed 2000 files.
+W1209 17:34:51.410233  3810 io.cpp:326] /home/tharun/data/ILSVRC/Annotations/DET/train1/n03249569_1224_aug0.xml bounding box exceeds image boundary.
+W1209 17:34:51.410250  3810 io.cpp:328] /home/tharun/data/ILSVRC/Annotations/DET/train1/n03249569_1224_aug0.xml bounding box exceeds image boundary.
+W1209 17:34:51.410274  3810 io.cpp:330] /home/tharun/data/ILSVRC/Annotations/DET/train1/n03249569_1224_aug0.xml bounding box exceeds image boundary.
+W1209 17:34:51.410277  3810 io.cpp:332] /home/tharun/data/ILSVRC/Annotations/DET/train1/n03249569_1224_aug0.xml bounding box exceeds image boundary.
+W1209 17:34:52.721515  3810 io.cpp:326] /home/tharun/data/ILSVRC/Annotations/DET/train1/n03249569_1224.xml bounding box exceeds image boundary.
+W1209 17:34:52.721532  3810 io.cpp:328] /home/tharun/data/ILSVRC/Annotations/DET/train1/n03249569_1224.xml bounding box exceeds image boundary.
+W1209 17:34:52.721554  3810 io.cpp:330] /home/tharun/data/ILSVRC/Annotations/DET/train1/n03249569_1224.xml bounding box exceeds image boundary.
+W1209 17:34:52.721559  3810 io.cpp:332] /home/tharun/data/ILSVRC/Annotations/DET/train1/n03249569_1224.xml bounding box exceeds image boundary.
+I1209 17:34:55.350177  3810 convert_annoset.cpp:195] Processed 3000 files.
+W1209 17:34:57.269099  3810 io.cpp:326] /home/tharun/data/ILSVRC/Annotations/DET/train1/n03249569_1224_aug3.xml bounding box exceeds image boundary.
+W1209 17:34:57.269117  3810 io.cpp:328] /home/tharun/data/ILSVRC/Annotations/DET/train1/n03249569_1224_aug3.xml bounding box exceeds image boundary.
+W1209 17:34:57.269140  3810 io.cpp:330] /home/tharun/data/ILSVRC/Annotations/DET/train1/n03249569_1224_aug3.xml bounding box exceeds image boundary.
+W1209 17:34:57.269145  3810 io.cpp:332] /home/tharun/data/ILSVRC/Annotations/DET/train1/n03249569_1224_aug3.xml bounding box exceeds image boundary.
+W1209 17:34:57.500453  3810 io.cpp:330] /home/tharun/data/ILSVRC/Annotations/DET/train1/n03467517_2200.xml bounding box exceeds image boundary.
+I1209 17:34:59.577710  3810 convert_annoset.cpp:195] Processed 4000 files.
+W1209 17:35:02.272719  3810 io.cpp:332] /home/tharun/data/ILSVRC/Annotations/DET/train1/n03467517_18729.xml bounding box exceeds image boundary.
+I1209 17:35:03.641310  3810 convert_annoset.cpp:195] Processed 5000 files.
+W1209 17:35:04.317757  3810 io.cpp:332] /home/tharun/data/ILSVRC/Annotations/DET/train1/n03467517_18729_aug3.xml bounding box exceeds image boundary.
+W1209 17:35:05.674172  3810 io.cpp:332] /home/tharun/data/ILSVRC/Annotations/DET/train1/n03467517_18729_aug0.xml bounding box exceeds image boundary.
+I1209 17:35:07.756032  3810 convert_annoset.cpp:195] Processed 6000 files.
+I1209 17:35:11.810693  3810 convert_annoset.cpp:195] Processed 7000 files.
+W1209 17:35:12.702358  3810 io.cpp:332] /home/tharun/data/ILSVRC/Annotations/DET/train1/n03467517_18729_aug2.xml bounding box exceeds image boundary.
+W1209 17:35:14.642230  3810 io.cpp:326] /home/tharun/data/ILSVRC/Annotations/DET/train1/n03249569_1224_aug2.xml bounding box exceeds image boundary.
+W1209 17:35:14.642248  3810 io.cpp:328] /home/tharun/data/ILSVRC/Annotations/DET/train1/n03249569_1224_aug2.xml bounding box exceeds image boundary.
+W1209 17:35:14.642271  3810 io.cpp:330] /home/tharun/data/ILSVRC/Annotations/DET/train1/n03249569_1224_aug2.xml bounding box exceeds image boundary.
+W1209 17:35:14.642274  3810 io.cpp:332] /home/tharun/data/ILSVRC/Annotations/DET/train1/n03249569_1224_aug2.xml bounding box exceeds image boundary.
+I1209 17:35:15.872639  3810 convert_annoset.cpp:195] Processed 8000 files.
+I1209 17:35:16.943933  3810 convert_annoset.cpp:201] Processed 8260 files.
 /home/tharun/SSD-instruments/build/tools/convert_annoset --anno_type=detection --label_type=xml --label_map_file=/home/tharun/SSD-instruments/data/ILSVRC2016/../../data/ILSVRC2016/labelmap_ilsvrc_det.prototxt --check_label=True --min_dim=0 --max_dim=0 --resize_height=0 --resize_width=0 --backend=lmdb --shuffle=False --check_size=False --encode_type=jpg --encoded=True --gray=False /home/tharun/data/ILSVRC/ /home/tharun/SSD-instruments/data/ILSVRC2016/../../data/ILSVRC2016/trainval1.txt /home/tharun/data/ILSVRC/lmdb/DET/ILSVRC2016_trainval1_lmdb
