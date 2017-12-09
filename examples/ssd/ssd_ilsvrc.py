@@ -240,9 +240,9 @@ job_name = "SSD_{}".format(resize)
 model_name = "VGG_ILSVRC2016_{}".format(job_name)
 
 # Directory which stores the model .prototxt file.
-save_dir = "models/VGGNet/ILSVRC2016/{}".format(job_name)
+save_dir = "models/VGGNet/ILSVRC2016/aug/{}".format(job_name)
 # Directory which stores the snapshot of models.
-snapshot_dir = "models/VGGNet/ILSVRC2016/{}".format(job_name)
+snapshot_dir = "models/VGGNet/ILSVRC2016/aug/{}".format(job_name)
 # Directory which stores the job script and log file.
 job_dir = "jobs/VGGNet/ILSVRC2016/{}".format(job_name)
 # Directory which stores the detection results.
