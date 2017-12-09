@@ -80,7 +80,8 @@ resume_training = True
 remove_old_models = True
 
 # The database file for training data. Created by data/ILSVRC2016/create_data.sh
-train_data = "/home/tps87/data/ILSVRC/lmdb/DET/ILSVRC2016_trainval1_lmdb"
+train_data = "/home/tharun/data/ILSVRC/lmdb/DET/ILSVRC2016_trainval1_lmdb_aug"
+
 # The database file for testing data. Created by data/ILSVRC2016/create_data.sh
 test_data = "/home/tps87/data/ILSVRC/lmdb/DET/ILSVRC2016_val2_lmdb"
 # Specify the batch sampler.
@@ -240,9 +241,9 @@ job_name = "SSD_{}".format(resize)
 model_name = "VGG_ILSVRC2016_{}".format(job_name)
 
 # Directory which stores the model .prototxt file.
-save_dir = "models/VGGNet/ILSVRC2016/{}".format(job_name)
+save_dir = "models/VGGNet/ILSVRC2016/aug/{}".format(job_name)
 # Directory which stores the snapshot of models.
-snapshot_dir = "models/VGGNet/ILSVRC2016/{}".format(job_name)
+snapshot_dir = "models/VGGNet/ILSVRC2016/aug/{}".format(job_name)
 # Directory which stores the job script and log file.
 job_dir = "jobs/VGGNet/ILSVRC2016/{}".format(job_name)
 # Directory which stores the detection results.
@@ -375,7 +376,7 @@ solver_param = {
     'momentum': 0.9,
     'iter_size': iter_size,
     'max_iter': 440000,
-    'snapshot': 52,
+    'snapshot': 259,
     'display': 10,
     'average_loss': 10,
     'type': "SGD",
@@ -385,7 +386,7 @@ solver_param = {
     'snapshot_after_train': True,
     # Test parameters
     'test_iter': [test_iter],
-    'test_interval': 52,
+    'test_interval': 259,
     'eval_type': "detection",
     'ap_version': "MaxIntegral",
     'test_initialization': False,

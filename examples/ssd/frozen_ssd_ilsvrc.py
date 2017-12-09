@@ -267,7 +267,7 @@ pretrain_model = "models/trained_model/VGG_ILSVRC2016_SSD_300x300_iter_440000.ca
 label_map_file = "data/ILSVRC2016/labelmap_ilsvrc_det.prototxt"
 
 # MultiBoxLoss parameters.
-num_classes = 206
+num_classes = 10
 share_location = True
 background_label_id=0
 train_on_diff_gt = False
@@ -339,7 +339,7 @@ num_gpus = len(gpulist)
 # num_gpus = 0
 
 # Divide the mini-batch to different GPUs.
-batch_size = 8
+batch_size = 1
 accum_batch_size = 32
 iter_size = accum_batch_size / batch_size
 solver_mode = P.Solver.GPU
@@ -361,7 +361,7 @@ elif normalization_mode == P.Loss.FULL:
   base_lr *= 2000.
 
 # Evaluate on whole test set.
-num_test_image = 69
+num_test_image = 432
 test_batch_size = 1
 test_iter = num_test_image / test_batch_size
 
@@ -375,7 +375,7 @@ solver_param = {
     'momentum': 0.9,
     'iter_size': iter_size,
     'max_iter': 440000,
-    'snapshot': 1654,
+    'snapshot': 104,
     'display': 10,
     'average_loss': 10,
     'type': "SGD",
@@ -385,7 +385,7 @@ solver_param = {
     'snapshot_after_train': True,
     # Test parameters
     'test_iter': [test_iter],
-    'test_interval': 1654, #1654
+    'test_interval': 52, 
     'eval_type': "detection",
     'ap_version': "MaxIntegral",
     'test_initialization': False,
@@ -454,11 +454,12 @@ net[name] = L.MultiBoxLoss(*mbox_layers, multibox_loss_param=multibox_loss_param
         loss_param=loss_param, include=dict(phase=caffe_pb2.Phase.Value('TRAIN')),
         propagate_down=[True, True, False, False])
 
-with open(train_net_file, 'w') as f:
-    print('name: "{}_train"'.format(model_name), file=f)
-    print(net.to_proto(), file=f)
+#with open(train_net_file, 'w') as f:
+#    print('name: "{}_train"'.format(model_name), file=f)
+#    print(net.to_proto(), file=f)
 shutil.copy(train_net_file, job_dir)
-sys.exit()
+#print('Train net created')
+#sys.exit()
 # Create test net.
 net = caffe.NetSpec()
 net.data, net.label = CreateAnnotatedDataLayer(test_data, batch_size=test_batch_size,
@@ -517,6 +518,7 @@ with open(deploy_net_file, 'w') as f:
         caffe_pb2.BlobShape(dim=[1, 3, resize_height, resize_width])])
     print(net_param, file=f)
 shutil.copy(deploy_net_file, job_dir)
+
 
 # Create solver.
 solver = caffe_pb2.SolverParameter(

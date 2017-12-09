@@ -30,7 +30,7 @@ test_name_size_file = "{}/test_name_size.txt".format(CURDIR)
 # Create training set.
 # We follow Ross Girschick's split in R-CNN.
 if redo or not os.path.exists(train_list_file):
-    datasets = ["train", "val1"]
+    datasets = ["train1", "val1"]
     img_files = []
     anno_files = []
     for dataset in datasets:
@@ -40,11 +40,11 @@ if redo or not os.path.exists(train_list_file):
             for line in f.readlines():
                 name = line.strip("\n").split(" ")[0]
                 subset = name.split("/")[0].split("_")[1]
-                anno_file = "{}/{}/{}.{}".format(anno_dir, "train", name, anno_ext)
+                anno_file = "{}/{}/{}.{}".format(anno_dir, "train1", name, anno_ext)
                 # Ignore image if it does not have annotation. These are the negative images in ILSVRC.
                 if not os.path.exists("{}/{}".format(data_dir, anno_file)):
                     continue
-                img_file = "{}/{}/{}.{}".format(img_dir, "train", name, img_ext)
+                img_file = "{}/{}/{}.{}".format(img_dir, "train1", name, img_ext)
                 assert os.path.exists("{}/{}".format(data_dir, img_file))
                 img_files.append(img_file)
                 anno_files.append(anno_file)
