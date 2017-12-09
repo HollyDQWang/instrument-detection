@@ -375,7 +375,7 @@ solver_param = {
     'momentum': 0.9,
     'iter_size': iter_size,
     'max_iter': 440000,
-    'snapshot': 52,
+    'snapshot': 259,
     'display': 10,
     'average_loss': 10,
     'type': "SGD",
@@ -385,7 +385,7 @@ solver_param = {
     'snapshot_after_train': True,
     # Test parameters
     'test_iter': [test_iter],
-    'test_interval': 52,
+    'test_interval': 259,
     'eval_type': "detection",
     'ap_version': "MaxIntegral",
     'test_initialization': False,
