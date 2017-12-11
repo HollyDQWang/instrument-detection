@@ -79,9 +79,9 @@ resume_training = True
 remove_old_models = False
 
 # The database file for training data. Created by data/VOC0712/create_data.sh
-train_data = os.path.expanduser("~/data/ILSVRC/lmdb/DET/ILSVRC2016_trainval1_lmdb_aug")
+train_data = "/home/tps87/data/ILSVRC/lmdb/DET/ILSVRC2016_trainval1_lmdb_aug"
 # The database file for testing data. Created by data/VOC0712/create_data.sh
-test_data = os.path.expanduser("~/data/ILSVRC/lmdb/DET/ILSVRC2016_val2_lmdb")
+test_data = "/home/tps87/data/ILSVRC/lmdb/DET/ILSVRC2016_val2_lmdb"
 # Specify the batch sampler.
 resize_width = 300
 resize_height = 300
@@ -175,6 +175,7 @@ batch_sampler = [
 train_transform_param = {
         'mirror': True,
         'mean_value': [104, 117, 123],
+        'force_color': True,
         'resize_param': {
                 'prob': 1,
                 'resize_mode': P.Resize.WARP,
@@ -211,6 +212,7 @@ train_transform_param = {
         }
 test_transform_param = {
         'mean_value': [104, 117, 123],
+        'force_color': True,
         'resize_param': {
                 'prob': 1,
                 'resize_mode': P.Resize.WARP,
