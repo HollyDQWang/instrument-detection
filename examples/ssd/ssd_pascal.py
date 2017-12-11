@@ -79,9 +79,9 @@ resume_training = True
 remove_old_models = False
 
 # The database file for training data. Created by data/VOC0712/create_data.sh
-train_data = "/home/tharun/data/ILSVRC/lmdb/DET/ILSVRC2016_trainval1_lmdb_aug"
+train_data = os.path.expanduser("~/data/ILSVRC/lmdb/DET/ILSVRC2016_trainval1_lmdb_aug")
 # The database file for testing data. Created by data/VOC0712/create_data.sh
-test_data = "/home/tharun/data/ILSVRC/lmdb/DET/ILSVRC2016_val2_lmdb"
+test_data = os.path.expanduser("~/data/ILSVRC/lmdb/DET/ILSVRC2016_val2_lmdb")
 # Specify the batch sampler.
 resize_width = 300
 resize_height = 300
@@ -531,9 +531,9 @@ max_iter = 0
 for file in os.listdir(snapshot_dir):
   if file.endswith(".solverstate"):
     basename = os.path.splitext(file)[0]
-    iter = int(basename.split("{}_iter_".format(model_name))[1])
-    if iter > max_iter:
-      max_iter = iter
+    iteration = int(basename.split("{}_iter_".format(model_name))[1])
+    if iteration > max_iter:
+      max_iter = iteration
 
 train_src_param = '--weights="{}" \\\n'.format(pretrain_model)
 if resume_training:
@@ -545,13 +545,13 @@ if remove_old_models:
   for file in os.listdir(snapshot_dir):
     if file.endswith(".solverstate"):
       basename = os.path.splitext(file)[0]
-      iter = int(basename.split("{}_iter_".format(model_name))[1])
-      if max_iter > iter:
+      iteration = int(basename.split("{}_iter_".format(model_name))[1])
+      if max_iter > iteration:
         os.remove("{}/{}".format(snapshot_dir, file))
     if file.endswith(".caffemodel"):
       basename = os.path.splitext(file)[0]
-      iter = int(basename.split("{}_iter_".format(model_name))[1])
-      if max_iter > iter:
+      iteration = int(basename.split("{}_iter_".format(model_name))[1])
+      if max_iter > iteration:
         os.remove("{}/{}".format(snapshot_dir, file))
 
 # Create job file.
