@@ -80,8 +80,7 @@ resume_training = True
 remove_old_models = True
 
 # The database file for training data. Created by data/ILSVRC2016/create_data.sh
-train_data = "/home/tharun/data/ILSVRC/lmdb/DET/ILSVRC2016_trainval1_lmdb_aug"
-
+train_data = "/home/tps87/data/ILSVRC/lmdb/DET/ILSVRC2016_trainval1_lmdb"
 # The database file for testing data. Created by data/ILSVRC2016/create_data.sh
 test_data = "/home/tps87/data/ILSVRC/lmdb/DET/ILSVRC2016_val2_lmdb"
 # Specify the batch sampler.
@@ -241,13 +240,13 @@ job_name = "SSD_{}".format(resize)
 model_name = "VGG_ILSVRC2016_{}".format(job_name)
 
 # Directory which stores the model .prototxt file.
-save_dir = "models/VGGNet/ILSVRC2016/aug/{}".format(job_name)
+save_dir = "models/VGGNet/ILSVRC2016/frozen/{}".format(job_name)
 # Directory which stores the snapshot of models.
-snapshot_dir = "models/VGGNet/ILSVRC2016/aug/{}".format(job_name)
+snapshot_dir = "models/VGGNet/ILSVRC2016/frozen/{}".format(job_name)
 # Directory which stores the job script and log file.
-job_dir = "jobs/VGGNet/ILSVRC2016/{}".format(job_name)
+job_dir = "jobs/VGGNet/ILSVRC2016/frozen/{}".format(job_name)
 # Directory which stores the detection results.
-output_result_dir = "{}/data/ILSVRC2016/results/{}".format(os.environ['HOME'], job_name)
+output_result_dir = "{}/data/ILSVRC2016/results/frozen/{}".format(os.environ['HOME'], job_name)
 
 # model definition files.
 train_net_file = "{}/train.prototxt".format(save_dir)
@@ -376,7 +375,7 @@ solver_param = {
     'momentum': 0.9,
     'iter_size': iter_size,
     'max_iter': 440000,
-    'snapshot': 259,
+    'snapshot': 104,
     'display': 10,
     'average_loss': 10,
     'type': "SGD",
@@ -386,7 +385,7 @@ solver_param = {
     'snapshot_after_train': True,
     # Test parameters
     'test_iter': [test_iter],
-    'test_interval': 259,
+    'test_interval': 52, 
     'eval_type': "detection",
     'ap_version': "MaxIntegral",
     'test_initialization': False,
@@ -455,11 +454,12 @@ net[name] = L.MultiBoxLoss(*mbox_layers, multibox_loss_param=multibox_loss_param
         loss_param=loss_param, include=dict(phase=caffe_pb2.Phase.Value('TRAIN')),
         propagate_down=[True, True, False, False])
 
-with open(train_net_file, 'w') as f:
-    print('name: "{}_train"'.format(model_name), file=f)
-    print(net.to_proto(), file=f)
+#with open(train_net_file, 'w') as f:
+#    print('name: "{}_train"'.format(model_name), file=f)
+#    print(net.to_proto(), file=f)
 shutil.copy(train_net_file, job_dir)
-
+#print('Train net created')
+#sys.exit()
 # Create test net.
 net = caffe.NetSpec()
 net.data, net.label = CreateAnnotatedDataLayer(test_data, batch_size=test_batch_size,
@@ -518,6 +518,7 @@ with open(deploy_net_file, 'w') as f:
         caffe_pb2.BlobShape(dim=[1, 3, resize_height, resize_width])])
     print(net_param, file=f)
 shutil.copy(deploy_net_file, job_dir)
+
 
 # Create solver.
 solver = caffe_pb2.SolverParameter(
