@@ -572,4 +572,32 @@ shutil.copy(py_file, job_dir)
 # Run the job.
 os.chmod(job_file, stat.S_IRWXU)
 if run_soon:
-  subprocess.call(job_file, shell=True)
+    p = subprocess.Popen(job_file, shell=True, stdout=subprocess.PIPE, bufsize=1,
+    preexec_fn=os.setsid)
+    # Early stopping
+    try:
+        with p.stdout:
+            max_acc = 0
+            n = 0 # number of times same val acc has stayed the same
+            for line in iter(p.stdout.readline, b''):
+                print(line, end='')
+                i = line.find('detection_eval = ')
+                if i != -1:
+                    acc_str = line[i+17:]
+                    acc = float(acc_str)
+                    if acc > max_acc + 0.001:
+                        max_acc = acc
+                        n = 0
+                    else:
+                        n += 1
+                        print('Accuracy has not increased for ' + str(n) + ' epoch(s)')
+
+                    if n == 10:
+                        print('Ending training')
+                        os.killpg(os.getpgid(p.pid), signal.SIGTERM)
+                        break
+
+    except KeyboardInterrupt:
+        print('KeyboardInterrupt')
+        os.killpg(os.getpgid(p.pid), signal.SIGTERM)
+        sys.exit()
