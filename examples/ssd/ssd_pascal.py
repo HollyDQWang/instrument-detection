@@ -79,9 +79,9 @@ resume_training = True
 remove_old_models = False
 
 # The database file for training data. Created by data/VOC0712/create_data.sh
-train_data = "examples/VOC0712/VOC0712_trainval_lmdb"
+train_data = "/home/tharun/data/ILSVRC/lmdb/DET/ILSVRC2016_trainval1_lmdb_aug"
 # The database file for testing data. Created by data/VOC0712/create_data.sh
-test_data = "examples/VOC0712/VOC0712_test_lmdb"
+test_data = "/home/tharun/data/ILSVRC/lmdb/DET/ILSVRC2016_val2_lmdb"
 # Specify the batch sampler.
 resize_width = 300
 resize_height = 300
@@ -237,11 +237,11 @@ job_name = "SSD_{}".format(resize)
 model_name = "VGG_VOC0712_{}".format(job_name)
 
 # Directory which stores the model .prototxt file.
-save_dir = "models/VGGNet/VOC0712/{}".format(job_name)
+save_dir = "models/VGGNet/VOC0712/aug/{}".format(job_name)
 # Directory which stores the snapshot of models.
-snapshot_dir = "models/VGGNet/VOC0712/{}".format(job_name)
+snapshot_dir = "models/VGGNet/VOC0712/aug/{}".format(job_name)
 # Directory which stores the job script and log file.
-job_dir = "jobs/VGGNet/VOC0712/{}".format(job_name)
+job_dir = "jobs/VGGNet/VOC0712/aug/{}".format(job_name)
 # Directory which stores the detection results.
 output_result_dir = "{}/data/VOCdevkit/results/VOC2007/{}/Main".format(os.environ['HOME'], job_name)
 
@@ -256,14 +256,14 @@ snapshot_prefix = "{}/{}".format(snapshot_dir, model_name)
 job_file = "{}/{}.sh".format(job_dir, model_name)
 
 # Stores the test image names and sizes. Created by data/VOC0712/create_list.sh
-name_size_file = "data/VOC0712/test_name_size.txt"
+name_size_file = "data/ILSVRC2016/test_name_size.txt"
 # The pretrained model. We use the Fully convolutional reduced (atrous) VGGNet.
-pretrain_model = "models/VGGNet/VGG_ILSVRC_16_layers_fc_reduced.caffemodel"
+pretrain_model = "models/VGGNet/VOC0712/SSD_300x300/VGG_VOC0712_SSD_300x300_iter_120000.caffemodel"
 # Stores LabelMapItem.
-label_map_file = "data/VOC0712/labelmap_voc.prototxt"
+label_map_file = "data/ILSVRC2016/labelmap_ilsvrc_det.prototxt"
 
 # MultiBoxLoss parameters.
-num_classes = 23
+num_classes = 10
 share_location = True
 background_label_id=0
 train_on_diff_gt = True
@@ -329,15 +329,15 @@ clip = False
 
 # Solver parameters.
 # Defining which GPUs to use.
-gpus = "0,1,2,3"
+gpus = "3"
 gpulist = gpus.split(",")
 num_gpus = len(gpulist)
 
 # Divide the mini-batch to different GPUs.
-batch_size = 32
+batch_size = 1
 accum_batch_size = 32
 iter_size = accum_batch_size / batch_size
-solver_mode = P.Solver.CPU
+solver_mode = P.Solver.GPU
 device_id = 0
 batch_size_per_device = batch_size
 if num_gpus > 0:
@@ -356,8 +356,8 @@ elif normalization_mode == P.Loss.FULL:
   base_lr *= 2000.
 
 # Evaluate on whole test set.
-num_test_image = 4952
-test_batch_size = 8
+num_test_image = 432
+test_batch_size = 1
 # Ideally test_batch_size should be divisible by num_test_image,
 # otherwise mAP will be slightly off the true value.
 test_iter = int(math.ceil(float(num_test_image) / test_batch_size))
@@ -372,7 +372,7 @@ solver_param = {
     'momentum': 0.9,
     'iter_size': iter_size,
     'max_iter': 120000,
-    'snapshot': 80000,
+    'snapshot': 259,
     'display': 10,
     'average_loss': 10,
     'type': "SGD",
@@ -382,7 +382,7 @@ solver_param = {
     'snapshot_after_train': True,
     # Test parameters
     'test_iter': [test_iter],
-    'test_interval': 10000,
+    'test_interval': 259,
     'eval_type': "detection",
     'ap_version': "11point",
     'test_initialization': False,
