@@ -41,7 +41,7 @@ from google.protobuf import text_format
 from caffe.proto import caffe_pb2
 
 # load PASCAL VOC labels
-labelmap_file = '/home/tharun/SSD-instruments/data/VOC0712/labelmap_voc.prototxt'
+labelmap_file = '/home/tharun/instrument-annotation-scratch/module/data/ILSVRC2016/labelmap_ilsvrc_det.prototxt'
 file = open(labelmap_file, 'r')
 labelmap = caffe_pb2.LabelMap()
 text_format.Merge(str(file.read()), labelmap)
@@ -67,8 +67,8 @@ def get_labelname(labelmap, labels):
 # In[3]:
 
 
-model_def = 'models/VGGNet/VOC0712/SSD_300x300/deploy.prototxt'
-model_weights = 'models/VGGNet/VOC0712/SSD_300x300/VGG_VOC0712_SSD_300x300_iter_120000.caffemodel'
+model_def = '/home/tharun/SSD-instruments/models/trained_model/deploy.prototxt'
+model_weights = '/home/tharun/SSD-instruments/models/trained_model/VGG_ILSVRC2016_SSD_300x300_iter_440000.caffemodel'
 
 net = caffe.Net(model_def,      # defines the structure of the model
                 model_weights,  # contains the trained weights
@@ -93,7 +93,7 @@ transformer.set_channel_swap('data', (2,1,0))  # the reference model has channel
 image_resize = 300
 net.blobs['data'].reshape(1,3,image_resize,image_resize)
 
-image = caffe.io.load_image('examples/images/fish-bike.jpg')
+image = caffe.io.load_image('/home/tharun/slash.png')
 plt.imshow(image)
 
 
@@ -107,7 +107,7 @@ net.blobs['data'].data[...] = transformed_image
 
 # Forward pass.
 detections = net.forward()['detection_out']
-
+print detections.shape
 # Parse the outputs.
 det_label = detections[0,0,:,1]
 det_conf = detections[0,0,:,2]
@@ -115,9 +115,10 @@ det_xmin = detections[0,0,:,3]
 det_ymin = detections[0,0,:,4]
 det_xmax = detections[0,0,:,5]
 det_ymax = detections[0,0,:,6]
+print det_conf
 
 # Get detections with confidence higher than 0.6.
-top_indices = [i for i, conf in enumerate(det_conf) if conf >= 0.3]
+top_indices = [i for i, conf in enumerate(det_conf) if conf >= 0.2]
 
 top_conf = det_conf[top_indices]
 top_label_indices = det_label[top_indices].tolist()
@@ -133,7 +134,7 @@ top_ymax = det_ymax[top_indices]
 # In[6]:
 
 
-colors = plt.cm.hsv(np.linspace(0, 1, 21)).tolist()
+colors = plt.cm.hsv(np.linspace(0, 1, 201)).tolist()
 
 plt.imshow(image)
 currentAxis = plt.gca()

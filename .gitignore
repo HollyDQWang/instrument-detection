@@ -101,3 +101,7 @@ MANIFEST-*
 jobs
 temp
 examples/*/*lmdb
+
+# Custom
+*.txt
+*.mp4
