@@ -38,6 +38,7 @@ This project used the following ImageNet synsets for training:
 * drum, membranophone, tympan
 * snare drum, snare, side drum
 * person
+
 Finally, you must modify [`data/ILSVRC2016/labelmap_ilsvrc_det.prototxt`](data/ILSVRC2016/labelmap_ilsvrc_det.prototxt) to match the classes in your dataset.
 
 ### Fine Tuning
