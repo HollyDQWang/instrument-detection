@@ -2,6 +2,11 @@
 This repository houses code for detecting and tracking instruments in concert videos. This project was done with Prof. Serge Belongie and Debarun Dhar at Cornell in Fall 2017.
 Original SSD code can be found at https://github.com/weiliu89/caffe/tree/ssd
 
+## About this Project
+This is the first module in the instrument retrieval project. You can find more information about the project [here](https://vision.cornell.edu/se3/musical-instrument-retrieval-in-video/). The popular SSD architecture (Liu et al.) was used to create the initial detections with coarse labels (e.g. electric guitar, bass guitar, etc.). These detections were then passed off to the retrieval module (which is not contained in this repository) to create more fine labels (e.g. Fender Stratocaster, Gibson Les Paul, etc.). Using a handpicked subset of the ImageNet database using the relevant categories, training and validation sets were created. Since the training set was relatively small, data augmentation (namely random cropping) was used to expand the size of the training set by ~8X to avoid overfitting. The validation set consisted of 432 images, equally distributed across all relevant categories. The original authors of the SSD paper provide pretrained caffe model files that can be used for fine tuning. One of these pretrained models, namely the one trained on the ILSVRC dataset, was used for this project. Since caffe does not include early stopping by default, early stopping was implemented to stop training after the mAP value had not increased for 10 epochs. Training was run for 16 epochs, reaching a maximum mAP of 0.53.
+
+An easily usable interface was created to perform detection on a video on a frame-by-frame basis, yielding bounding boxes for each frame. This interface can be found in `module`. Since the model would often predict overlapping bounding boxes (e.g. labeling a guitar as both an electric guitar and a bass guitar), boxes that overlapped more than a given threshold were removed. Although this did not completely remove all overlaps, it significantly decreased them. Two ways of using this interface are demonstrated in the code. One demo ([`module/demo.py`](module/demo.py)) runs detection on a video, draws the bounding boxes on each frame, and saves it to a new video. A second demo ([`module/file_demo.py`](module/file_demo.py)), which was used for the results of this project, produces detections on each frame and saves them to a text file. This text file can be easily parsed ([`module/plot_file.py`](module/plot_file.py)) to retrieve the detections.
+
 ## Installation
 1. Get the code. We will call the directory that you cloned Caffe into `$CAFFE_ROOT`
   ```Shell
@@ -43,7 +48,7 @@ Finally, you must modify [`data/ILSVRC2016/labelmap_ilsvrc_det.prototxt`](data/I
 
 ### Fine Tuning
 Be sure to download a pretrained model from the links below.
-The model can be fine tuned using the script at [`examples/ssd/ssd_ilsvrc.py`](examples/ssd/ssd_ilsvrc.py). Additionally, [`examples/ssd/frozen_ssd_ilsvrc.py`](examples/ssd/frozen_ssd_ilsvrc.py) is provided, which doesn't recreate the train.prototxt, allowing individual layers to be frozen.
+The model can be fine tuned using the script at [`examples/ssd/ssd_ilsvrc.py`](examples/ssd/ssd_ilsvrc.py). Additionally, [`examples/ssd/frozen_ssd_ilsvrc.py`](examples/ssd/frozen_ssd_ilsvrc.py) is provided, which doesn't recreate the `train.prototxt` file, allowing individual layers to be frozen.
 Make sure to update all relevant paths in either file (pretrained model, LMDB databases) and change all hyperparameters to fit your experiment.
 
 ## Models
